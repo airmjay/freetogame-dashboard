@@ -43,3 +43,8 @@ Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
    git clone [https://github.com/airmjay/freetogame-dashboard.git](https://github.com/airmjay/freetogame-dashboard.git)
    cd freetogame-dashboard
    ```
+
+## view the demo site
+
+** Url **
+[link] https://freeapi-three.vercel.app/
