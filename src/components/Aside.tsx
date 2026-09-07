@@ -1,12 +1,9 @@
-interface Props {
-  genres: string;
-  setGenres: (item: string) => void;
-}
+import StoreData from "../state_management/DataStore";
 
-export const Aside = ({ genres, setGenres }: Props) => {
-  const styleList = genres
-    ? "font-bold"
-    : "mb-1 flex space-x-1 items-center p-3 border-t-2 border-slate-300 hover:font-bold";
+export const Aside = () => {
+  const { gameQuery, setGenres } = StoreData();
+  const genres = gameQuery.genres;
+
   const Categories = [
     { name: "MMO", img: "https://www.freetogame.com/g/516/thumbnail.jpg" },
     { name: "MMORPG", img: "https://www.freetogame.com/g/590/thumbnail.jpg" },
@@ -29,7 +26,7 @@ export const Aside = ({ genres, setGenres }: Props) => {
           onClick={() => setGenres(item.name)}
           key={index}
           className={
-            genres.toLocaleLowerCase() == item.name.toLocaleLowerCase()
+            genres?.toLocaleLowerCase() == item.name.toLocaleLowerCase()
               ? "mb-1 flex space-x-1 items-center p-3 border-t-2 border-slate-300 hover:font-bold font-extrabold"
               : "mb-1 flex space-x-1 items-center p-3 border-t-2 border-slate-300 hover:font-bold"
           }

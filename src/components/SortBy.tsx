@@ -1,9 +1,7 @@
-interface Props {
-  setSortBy: (item: string) => void;
-  setCurrentSort: string;
-}
+import StoreData from "../state_management/DataStore";
 
-export const SortBy = ({ setSortBy, setCurrentSort }: Props) => {
+export const SortBy = () => {
+  const { gameQuery, setSortBy } = StoreData();
   const sort = [
     { name: "relevance" },
     { name: "popularity" },
@@ -13,7 +11,7 @@ export const SortBy = ({ setSortBy, setCurrentSort }: Props) => {
   return (
     <div className="dropdown dropdown-start  dark:bg-gray-600 dark:text-slate-600 bg-white mt-2">
       <div tabIndex={0} role="button" className="btn m-1 bg-white">
-        {setCurrentSort ? setCurrentSort : "Sort-by"} ⬇️
+        {gameQuery.sort ? gameQuery.sort : "Sort-by"} ⬇️
       </div>
       <ul
         tabIndex={-1}

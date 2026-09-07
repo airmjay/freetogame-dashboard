@@ -1,7 +1,8 @@
-import type { gamesQuery } from "../App";
+
+import type { GameQuery } from "../state_management/DataStore";
 import QueryFetch from "./reactQueryFetct";
 
-export const useDatas = <T>(endpoint: string, gamesQuery: gamesQuery) => {
+export const useDatas = <T>(endpoint: string, gamesQuery: GameQuery) => {
   const queryFetch = new QueryFetch<T>(endpoint)
   const category =  gamesQuery.genres ?  gamesQuery.genres : undefined
   const platform =  gamesQuery.platform ? gamesQuery.platform : undefined

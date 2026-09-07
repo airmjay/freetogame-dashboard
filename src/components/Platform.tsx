@@ -1,15 +1,13 @@
-interface Props {
-  setPlatform: (item: string) => void;
-  setCurrentPlatform: string;
-}
+import StoreData from "../state_management/DataStore";
 
-export const Platform = ({ setPlatform, setCurrentPlatform }: Props) => {
+export const Platform = () => {
+  const { gameQuery, setPlatform } = StoreData();
   const platform = ["windows", "browser"];
 
   return (
     <div className="dropdown dropdown-start dark:text-slate-700 dark:bg-gray-600 bg-white mt-2">
       <div tabIndex={0} role="button" className="btn m-1 bg-white">
-        {setCurrentPlatform ? setCurrentPlatform : "Platforms"} ⬇️
+        {gameQuery.platform ? gameQuery.platform : "Platforms"} ⬇️
       </div>
       <ul
         tabIndex={-1}

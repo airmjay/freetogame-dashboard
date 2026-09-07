@@ -1,9 +1,8 @@
-import { useState } from "react";
-import type { gamesQuery } from "../App";
 import { useDatas } from "../hooks/useDatas";
 import { GameCard } from "./GameCard";
 import { ShadowCard } from "./ShadowCard";
 import { Message } from "./message";
+import StoreData from "../state_management/DataStore";
 export interface Game {
   id: number;
   thumbnail: string;
@@ -12,18 +11,15 @@ export interface Game {
   genre: string;
   publisher: string;
 }
-export interface GameQuery {
+export interface GameData {
   data: Game[];
   status: number;
 }
-interface Prop {
-  gamesQuery: gamesQuery;
-}
-
-export const GameGrid = ({ gamesQuery }: Prop) => {
-  const { error, data, isLoading } = useDatas<GameQuery>("/games", gamesQuery);
+export const GameGrid = () => {
+  const { gameQuery, NextPage, PreviousPage, page } = StoreData();
+  const { error, data, isLoading } = useDatas<GameData>("/games", gameQuery);
   if (error) return <Message message={error.message} />;
-  const [page, setPage] = useState(1);
+
   const PAGE_SIZE = 12;
   if (data?.status == 201)
     return <Message message="No Game with following Information" />;
@@ -52,13 +48,13 @@ export const GameGrid = ({ gamesQuery }: Prop) => {
         <div className="join grid grid-cols-2 w-80 mt-2 mb-5">
           <button
             disabled={page == 1}
-            onClick={() => setPage((page) => page - 1)}
+            onClick={() => PreviousPage()}
             className="join-item btn btn-outline"
           >
             Previous page
           </button>
           <button
-            onClick={() => setPage((page) => page + 1)}
+            onClick={() => NextPage()}
             className="join-item btn btn-outline"
             disabled={page == totalPages}
           >
