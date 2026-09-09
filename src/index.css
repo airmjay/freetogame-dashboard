@@ -2,3 +2,5 @@
 @plugin "daisyui";
 
 @variant dark (&:where(.dark, .dark *));
+
+

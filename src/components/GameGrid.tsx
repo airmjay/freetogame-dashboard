@@ -1,9 +1,11 @@
 import { useDatas } from "../hooks/useDatas";
-import { GameCard } from "./GameCard";
+import { GamesCard } from "./GamesCard";
 import { ShadowCard } from "./ShadowCard";
 import { Message } from "./message";
 import StoreData from "../state_management/DataStore";
-export interface Game {
+
+import React from "react";
+export interface Games {
   id: number;
   thumbnail: string;
   title: string;
@@ -12,7 +14,7 @@ export interface Game {
   publisher: string;
 }
 export interface GameData {
-  data: Game[];
+  data: Games[];
   status: number;
 }
 export const GameGrid = () => {
@@ -36,9 +38,9 @@ export const GameGrid = () => {
       <div className="p-1 grid grid-cols-1 md:grid-cols-2 mt-2 px-2 lg:grid-cols-3 gap-2">
         {isLoading && <ShadowCard />}
         {paginatedGames?.map((item, index) => (
-          <div className="dark:text-white" key={index}>
-            <GameCard item={item} />
-          </div>
+          <React.Fragment key={index}>
+            <GamesCard item={item} />
+          </React.Fragment>
         ))}
       </div>
       <div className="flex-col gap-4 ml-2 mt-2 items-center">

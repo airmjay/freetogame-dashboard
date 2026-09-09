@@ -3,7 +3,7 @@ import StoreData from "../state_management/DataStore";
 export const Aside = () => {
   const { gameQuery, setGenres } = StoreData();
   const genres = gameQuery.genres;
-
+  const { setShow } = StoreData();
   const Categories = [
     { name: "MMO", img: "https://www.freetogame.com/g/516/thumbnail.jpg" },
     { name: "MMORPG", img: "https://www.freetogame.com/g/590/thumbnail.jpg" },
@@ -17,13 +17,19 @@ export const Aside = () => {
     { name: "fighting", img: "https://www.freetogame.com/g/599/thumbnail.jpg" },
   ];
   return (
-    <ul className="dark:text-white dark:bg-gray-800  list w-full bg-base-100 rounded-box shadow-md h-[93vh] overflow-x-hidden overflow-y-scroll">
+    <ul
+      className={`dark:text-white dark:bg-gray-800  
+      list w-full bg-base-100 rounded-box shadow-md h-[93vh] overflow-x-hidden overflow-y-scroll`}
+    >
       <li className="p-4 pb-2 text-xs dark:text-white dark:opacity-100 opacity-60 tracking-wide">
         List of Game Categories
       </li>
       {Categories.map((item, index) => (
         <button
-          onClick={() => setGenres(item.name)}
+          onClick={() => {
+            setGenres(item.name);
+            setShow();
+          }}
           key={index}
           className={
             genres?.toLocaleLowerCase() == item.name.toLocaleLowerCase()

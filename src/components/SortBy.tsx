@@ -10,7 +10,11 @@ export const SortBy = () => {
   ];
   return (
     <div className="dropdown dropdown-start  dark:bg-gray-600 dark:text-slate-600 bg-white mt-2">
-      <div tabIndex={0} role="button" className="btn m-1 bg-white">
+      <div
+        tabIndex={0}
+        role="button"
+        className="btn m-1 dark:bg-gray-600 dark:text-white bg-white"
+      >
         {gameQuery.sort ? gameQuery.sort : "Sort-by"} ⬇️
       </div>
       <ul

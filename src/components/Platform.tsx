@@ -6,7 +6,11 @@ export const Platform = () => {
 
   return (
     <div className="dropdown dropdown-start dark:text-slate-700 dark:bg-gray-600 bg-white mt-2">
-      <div tabIndex={0} role="button" className="btn m-1 bg-white">
+      <div
+        tabIndex={0}
+        role="button"
+        className="btn m-1 dark:bg-gray-600 dark:text-white"
+      >
         {gameQuery.platform ? gameQuery.platform : "Platforms"} ⬇️
       </div>
       <ul
