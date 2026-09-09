@@ -1,4 +1,5 @@
 import StoreData from "../state_management/DataStore";
+import { DarkMode } from "./DarkMode";
 
 export const Aside = () => {
   const { gameQuery, setGenres } = StoreData();
@@ -21,8 +22,13 @@ export const Aside = () => {
       className={`dark:text-white dark:bg-gray-800  
       list w-full bg-base-100 rounded-box shadow-md h-[93vh] overflow-x-hidden overflow-y-scroll`}
     >
-      <li className="p-4 pb-2 text-xs dark:text-white dark:opacity-100 opacity-60 tracking-wide">
-        List of Game Categories
+      <li className="flex justify-between mt-2 items-center">
+        <li className="md:block p-4 text-xm md:text-md lg:text-md pb-2 dark:text-white dark:opacity-100 opacity-60 tracking-wide">
+          List of Game Categories
+        </li>
+        <li className="">
+          <DarkMode />
+        </li>
       </li>
       {Categories.map((item, index) => (
         <button

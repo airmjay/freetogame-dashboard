@@ -8,7 +8,7 @@ function Navbar() {
   const { show, setShow } = StoreData();
   useEffect(() => {}, [show]);
   return (
-    <div className="navbar p-2 bg-base-100 shadow-sm m-0 justify-between dark:text-white dark:bg-gray-800">
+    <div className="navbar p-2 bg-base-100 shadow-sm m-0 flex justify-between dark:text-white dark:bg-gray-800">
       <div className="flex items-center justify-between w-full">
         <Link to="/" className="flex gap-2  items-center">
           <img src={Logo} alt="GameHub Logo" className="w-10 h-10 mr-1" />
@@ -40,7 +40,7 @@ function Navbar() {
           </button>
         </div>
       </div>
-      <div className="flex items-center">
+      <div className="hidden md:block">
         <DarkMode />
       </div>
     </div>

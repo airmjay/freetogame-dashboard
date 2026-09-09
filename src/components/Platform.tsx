@@ -5,7 +5,7 @@ export const Platform = () => {
   const platform = ["windows", "browser"];
 
   return (
-    <div className="dropdown dropdown-start dark:text-slate-700 dark:bg-gray-600 bg-white mt-2">
+    <div className="dropdown dropdown-start dark:text-slate-700 dark:bg-gray-600 mt-2">
       <div
         tabIndex={0}
         role="button"

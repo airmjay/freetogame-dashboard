@@ -9,11 +9,11 @@ export const SortBy = () => {
     { name: "alphabetical" },
   ];
   return (
-    <div className="dropdown dropdown-start  dark:bg-gray-600 dark:text-slate-600 bg-white mt-2">
+    <div className="dropdown dropdown-start  dark:bg-gray-600 dark:text-slate-600  mt-2">
       <div
         tabIndex={0}
         role="button"
-        className="btn m-1 dark:bg-gray-600 dark:text-white bg-white"
+        className="btn m-1 dark:bg-gray-600 dark:text-white"
       >
         {gameQuery.sort ? gameQuery.sort : "Sort-by"} ⬇️
       </div>

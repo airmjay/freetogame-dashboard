@@ -12,14 +12,14 @@ export const DarkMode = () => {
     localStorage.theme = nextDarkState ? "dark" : "light";
   };
   return (
-    <div className="hidden md:flex gap-2">
+    <div className="flex items-center gap-2">
       <input
         checked={isDark}
         onChange={() => toggleTheme()}
         type="checkbox"
         className="toggle toggle-primary"
       />
-      <span>Dark Mode</span>
+      <span className="text-nowrap">Dark Mode</span>
     </div>
   );
 };
