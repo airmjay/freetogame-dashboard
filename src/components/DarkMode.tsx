@@ -12,7 +12,7 @@ export const DarkMode = () => {
     localStorage.theme = nextDarkState ? "dark" : "light";
   };
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 bg-white text-slate-700 dark:bg-gray-500 dark:text-white">
       <input
         checked={isDark}
         onChange={() => toggleTheme()}

@@ -26,7 +26,7 @@ export const Aside = () => {
         <li className="md:block p-4 text-xm md:text-md lg:text-md pb-2 dark:text-white dark:opacity-100 opacity-60 tracking-wide">
           List of Game Categories
         </li>
-        <li className="">
+        <li className="block md:hidden">
           <DarkMode />
         </li>
       </li>
